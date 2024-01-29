@@ -1,0 +1,55 @@
+@use "reset";
+@use "utilities";
+@use "mixins" as m;
+@use "colors" as c;
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: monospace;
+    color: c.$txt;
+    background: c.$bg;
+    @include m.flex(column, false, space-between, center);
+}
+
+#intro {
+    width: 100%;
+    height: 100%;
+}
+
+// header, main, footer {
+//     display: none;
+// }
+
+header, footer {
+    width: 100%;
+}
+
+main {
+    text-align: center;
+    padding-top: 14rem;
+
+    .time {
+        font-size: 3rem;
+    }
+
+    .icon {
+        --ggs: 3.5;
+        margin: 3rem; // hi stan
+    }
+
+    .greeting {
+        font-size: 1.7rem;
+        flex-direction: wrap;
+    }
+
+    .focus {
+        font-size: 0.8rem;
+        color: c.$highlight;
+
+        .question {
+            padding-bottom: 1rem;
+        }
+    }
+}
+

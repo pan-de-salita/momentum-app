@@ -1,0 +1,26 @@
+@use "mixins" as m;
+@use "colors" as c;
+
+.flex-column-center {
+    @include m.flex(column, false, center, center);
+}
+
+.flex-column-left {
+    @include m.flex(column, false, center, flex-start);
+}
+
+.flex-column-right {
+    @include m.flex(column, false, center, flex-end);
+}
+
+.top-bottom-section {
+    padding: 1rem 1rem;
+}
+
+.main-padding-default {
+    padding: 0.2rem 0;
+}
+
+.main-padding-large {
+    padding: 4rem 0;
+}

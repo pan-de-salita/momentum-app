@@ -1,0 +1,20 @@
+@mixin flex(
+    $flex-direction: false,
+    $flex-wrap: false,
+    $justify-content: false,
+    $align-items: false
+) {
+    display: flex;
+    @if $flex-direction {
+        flex-direction: $flex-direction;
+    }
+    @if $flex-wrap {
+        flex-wrap: $flex-wrap;
+    }
+    @if $justify-content {
+        justify-content: $justify-content;
+    }
+    @if $align-items {
+        align-items: $align-items;
+    }
+}
