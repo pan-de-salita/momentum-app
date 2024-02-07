@@ -1,0 +1,201 @@
+@use "mixins" as m;
+@use "colors" as c;
+
+.flex-column-center {
+    @include m.flex(column, false, center, center);
+}
+
+.flex-column-left {
+    @include m.flex(column, false, center, flex-start);
+}
+
+.flex-column-right {
+    @include m.flex(column, false, center, flex-end);
+}
+
+.flex-row-start {
+    @include m.flex(false, false, start, center);
+}
+
+.top-bottom-section {
+    padding: 0.5rem 1rem;
+}
+
+.main-padding-default {
+    padding: 0.5rem 0;
+}
+
+.main-padding-large {
+    padding: 3rem 0;
+}
+
+.header {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.subheader {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.body-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    text-align: right;
+    padding: 0.4rem;
+}
+
+.time {
+    font-family: 'DotGothic16', monospace;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+.app-name {
+    font-size: 3.7rem;
+    color: c.$logo;
+    padding-bottom: 10rem;
+}
+
+.app-name-small {
+    font-size: 1.5rem;
+    color: c.$highlight;
+    padding-bottom: 3rem;
+}
+
+.name-prompt {
+    padding: 1rem 4rem 1rem 4rem;
+}
+
+.text-input {
+    width: 20rem;
+    background: none;
+    border: none;
+    border-bottom: 4px dotted c.$txt;
+    color: c.$input;
+}
+
+.text-input:focus {
+    border-color: c.$input;
+    outline: c.$input;
+}
+
+.icon {
+    --ggs: 4;
+    margin-bottom: 4rem; // hi stan
+}
+
+.todo-prompt {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: c.$logo;
+}
+
+.mode-select {
+    margin: 0.5rem 0.5rem;
+
+    .mode-focus {
+        font-weight: bold;
+        color: c.$select;
+        background: c.$logo;
+        border: 1px solid c.$logo;
+        padding: 0.2rem;
+    }
+
+    .mode-idle {
+        border: 1px solid c.$txt;
+        padding: 0.2rem;
+    }
+}
+
+.question {
+    padding-bottom: 1rem;
+}
+
+.main-focus-container {
+    @include m.flex(false, false, center, center);
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: c.$input;
+
+    .todo-label {
+        min-width: fit-content;
+        line-height: 1.3;
+    }
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.edit {
+    color: c.$txt;
+    --ggs: 0.8;
+    cursor: pointer;
+}
+
+.main-focus-complete {
+    color: c.$txt;
+    --ggs: 0.8;
+    cursor: pointer;
+}
+
+.todo-input {
+    width: 100%;
+    background: none;
+    font-family: monospace;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    border: none;
+    padding: 0.2rem 0.2rem 0.2rem 0;
+    color: c.$txt;
+    text-align: left;
+}
+
+.todo-input:focus {
+    outline: c.$input;
+    color: c.$input;
+}
+
+.mode-text {
+    margin: 0 0.5rem;
+    line-height: 1.3;
+    width: 96%;
+}
+
+.todo-input-container {
+    width: 100%;
+    // align-items: start;
+    // gap: 0.5rem;
+}
+
+
+.todo-list {
+    @include m.flex(column, false, center, flex-start);
+}
+
+.line {
+    gap: 0.5rem;
+}
+
+.terminal-text {
+    font-size: 0.9rem;
+}

@@ -4,55 +4,109 @@
     <meta charset="UTF-8"/>
     <title>Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./scss/styles.css" type="text/css" media="screen" />
     <link href="https://css.gg/css" rel="stylesheet" />
-    <script type="text/javascript" src="./script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <script src="./js/intro.js" defer></script>
+    <script src="./js/time.js" defer></script>
+    <script src="./js/mainFocus.js" defer></script>
+    <script src="./js/modes.js" defer></script>
   </head>
   <body>
-    <!-- TODO User Story #1: As a user I want to put my name on the homepage -->
-    <!-- TODO User Story #2: As a user I want to see the current time on the homepage -->
-    <!-- TODO User Story #3: As a user I want to see a greeting with my inputted name on the homepage -->
-    <!-- TODO User Story #4: As a user I want to add my main focus for today on the homepage and display it also on the same page -->
+    <!-- User Story #1: As a user I want to put my name on the homepage -->
+    <!-- User Story #2: As a user I want to see the current time on the homepage -->
+    <!-- User Story #3: As a user I want to see a greeting with my inputted name on the homepage -->
+    <!-- User Story #4: As a user I want to add my main focus for today on the homepage and display it also on the same page -->
     <!-- TODO User Story #5: As a user I want to see a random quote on the homepage -->
-    <!-- TODO User Story #6: As a user I want to add a todo list on the homepage and is able to see the list on the same page -->
+    <!-- User y #6: As a user I want to add a todo list on the homepage and is able to see the list on the same page -->
     <!-- TODO User Story #7: As a user I want to add a new quote for my momentum app -->
-
-    <!-- make the bg image changing depende sa time of the day -->
+    <!-- TODO make the bg image changing depende sa time of the day -->
     <!-- make the name persist kahit nireload dapat the name/quotes/todos u added are still there -->
-    <!-- quotes should be fetched from third party api -->
+    <!-- TODO quotes should be fetched from third party api -->
+    <!-- use multiple js files (there should be a proper way to do this :thinking: -->
 
-    <!-- <div id="intro" class="flex-column-center hide"> -->
-      <!--   <h2 class="hello">hello</h2> -->
-      <!-- </div> -->
+    <div class="intro flex-column-center show">
+      <h2 class="hello app-name">mentum</h2>
+      <h3 class="hello subheader name-prompt">your name:</h3>
+      <input type="text" name="username" size="24" class="username text-input subheader" autocomplete="off">
+    </div>
 
-    <header class="flex-column-right">
-      <span class="weather top-bottom-section">weather</span>
+    <header class="app-interface flex-row-center hide">
+      <span class="app-name-small top-bottom-section">mentum</span>
     </header>
 
-    <main class="flex-column-center">
-      <i class="gg-eye icon main-padding-default"></i>
-      <!-- <i class="gg-border-style-solid icon main-padding-default"></i> -->
-      <!-- <i class="gg-eye-alt icon main-padding-default"></i> -->
+    <div class="screen-container app-interface hide">
 
-      <span class="time main-padding-default">10:50</span>
-      <!-- use js to insert time here? -->
+      <main class="app-interface hide">
+        <!-- <i class="gg-bot icon"></i> -->
+        <!-- <i class="gg-eye icon"></i> -->
+        <!-- <i class="gg-border-style-solid icon main-padding-default"></i> -->
+        <i class="gg-eye-alt icon main-padding-default"></i>
+        <span class="time main-padding-default header"></span>
+        <!-- use js to insert time here? -->
+        <div class="greeting main-padding-default">
+          <span class="message subheader">hi,</span>
+          <span class="name subheader">name</span>
+        </div>
+        <div class="focus flex-column-center">
+          <h1 class="question body-text">your main focus today:</h1>
+          <input type="text" name="main-focus-input" size="24" class="text-input body-text show" autocomplete="off">
+          <div class="main-focus-container">
 
-      <div class="greeting main-padding-default">
-        <span class="message">hello, </span>
-        <!-- TODO include input function -->
-        <span class="name">name</span>
-      </div>
+            <label class="todo-label main-focus-label hide body-text" name='main-focus'></label>
+            <input type="checkbox" name="main-focus-checkbox" class="hide" value="main-focus">
+            <i class="gg-pen edit hidden"></i>
+          </div>
+        </div>
+      </main>
 
-      <div class="focus flex-column-center main-padding-large">
-        <h1 class="question">priority today:</h1>
-        <span class="input">dummy text for input</span>
-      </div>
-    </main>
+      <footer class="mode-container app-interface hide">
+        <div class="mode-select flex-row-start">
+          <span class="mode-focus">help</span>
+          <span class="mode-idle">todo</span>
+          <span class="mode-idle">shell</span>
+        </div>
 
-    <footer class="flex-column-center">
-      <span class="quote top-bottom-section">Urna, porttitor rhoncus dolor purus non enim praesent.</span>
+        <div class="mode-text">
 
-    </footer>
+          <p class="help">
+            / ----------------- "MANUAL" ----------------- \ <br />
+            | navigate between modes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            | [ctrl -> 1] help | man page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [ctrl -> 2] todo | read TODOs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            | [ctrl -> 3] shell | add TODOs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            ------------------------------------------------ <br />
+            | shell mode commands: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            | [todo [your task]] | adds a task &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [todos] | shows all tasks as array &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [rm -rf .] | DO NOT USE THIS COMMAND &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            ------------------------------------------------ <br />
+            \ _______________ 哦，我還沒死呢 _______________ /
+            <br />
+          </p>
+
+          <div class="todo hide"></div>
+
+          <div class="todo-input-container flex-column-left shell hide">
+            <div class="line flex-row-start">
+              <span class="todo-prompt">
+                <span class="name">name</span>@mentum:~$
+              </span>
+              <input type="text" name="todo-input" size="25" class="todo-input" autocomplete="off">
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </footer>
+
+
+    </div>
+    
 
   </body>
 </html>
