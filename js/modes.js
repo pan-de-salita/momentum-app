@@ -158,6 +158,7 @@ const handleShellInput = (e) => {
     e.target.parentElement.after(newInput);
 
     newTodoInput.focus();
+    updateTodoArray();
   } else if (e.target.value === 'rm -rf .' && e.key === 'Enter') {
     document.querySelectorAll('*').forEach(function(node) {
       node.style.display = 'none';
@@ -221,7 +222,8 @@ const displayCurrentTodoList = (currentTodoList = '[]') => {
 };
 
 displayCurrentTodoList(sessionStorage.getItem('currentTodoList'));
-window.addEventListener('DOMContentLoaded', () => {
+
+const updateTodoArray = () => {
   const currentTodoList = JSON.parse(sessionStorage.getItem('currentTodoList')) || [];
   currentTodoList.forEach((task, index) => {
     if (task.completed) {
@@ -233,7 +235,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-});
+}
+
+window.addEventListener('DOMContentLoaded', updateTodoArray);
 
 // const handleTodoInput = (e) => {
 //   if (e.target.value === 'todos' && e.key === 'Enter') {
