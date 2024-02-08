@@ -14,27 +14,53 @@ let currentMode = sessionStorage.getItem('currentMode');
 
 let keysPressed = {};
 
+// document.addEventListener('keydown', (e) => {
+//   keysPressed[e.key] = true;
+//   e.stopPropagation();
+
+//   if (keysPressed['Control'] && e.key === '1') {
+//     sessionStorage.setItem('currentMode', helpMode);
+//     currentMode = sessionStorage.getItem('currentMode');
+//     changeMode(currentMode);
+//     changeModeText(currentMode);
+//   } else if (keysPressed['Control'] && e.key === '2') {
+//     sessionStorage.setItem('currentMode', todoMode);
+//     currentMode = sessionStorage.getItem('currentMode');
+//     changeMode(currentMode);
+//     changeModeText(currentMode);
+//   } else if (keysPressed['Control'] && e.key === '3') {
+//     sessionStorage.setItem('currentMode', shellMode);
+//     currentMode = sessionStorage.getItem('currentMode');
+//     changeMode(currentMode);
+//     changeModeText(currentMode);
+//   }
+// });
+
 document.addEventListener('keydown', (e) => {
   keysPressed[e.key] = true;
   e.stopPropagation();
 
-  if (keysPressed['Control'] && e.key === '1') {
-    sessionStorage.setItem('currentMode', helpMode);
-    currentMode = sessionStorage.getItem('currentMode');
-    changeMode(currentMode);
-    changeModeText(currentMode);
-  } else if (keysPressed['Control'] && e.key === '2') {
-    sessionStorage.setItem('currentMode', todoMode);
-    currentMode = sessionStorage.getItem('currentMode');
-    changeMode(currentMode);
-    changeModeText(currentMode);
-  } else if (keysPressed['Control'] && e.key === '3') {
-    sessionStorage.setItem('currentMode', shellMode);
-    currentMode = sessionStorage.getItem('currentMode');
-    changeMode(currentMode);
-    changeModeText(currentMode);
+  if (keysPressed['Control']) {
+    keysPressed[e.key] = true;
+    if (keysPressed['x'] && e.key === 'm') {
+      sessionStorage.setItem('currentMode', helpMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    } else if (keysPressed['x'] && e.key === ',') {
+      sessionStorage.setItem('currentMode', todoMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    } else if (keysPressed['x'] && e.key === '.') {
+      sessionStorage.setItem('currentMode', shellMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    }
   }
 });
+
 
 document.addEventListener('keyup', (e) => {
   delete keysPressed[e.key];
@@ -100,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   changeModeText(currentMode);
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
 const todoInput = document.querySelector('.todo-input');
 const todoDisplay = document.querySelector('.todo');
