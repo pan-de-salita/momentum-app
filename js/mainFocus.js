@@ -78,7 +78,7 @@ const completedMainFocus = (e) => {
   if (isMainFocusCompleted === 'true') {
     mainFocusOutput_Label.classList.toggle('completed');
     mainFocusOutput_Checkbox.classList.toggle('hide');
-    message.textContent = 'wow. good job,';
+    message.textContent = 'progress is progress,';
   } else if (e === null) {
     mainFocusOutput_Label.classList.remove('completed');
     message.textContent = 'hi,';

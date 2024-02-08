@@ -4,7 +4,6 @@ const usernameInput = document.querySelector('input[name="username"]');
 // handle key press in the username input field
 const handleUsernameKeyPress = (e) => {
   if (e.key === "Enter") {
-    e.preventDefault();
     storeUsernameAndUpdatePage();
   }
 }

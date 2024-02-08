@@ -31,13 +31,13 @@ body {
 
 .screen-container {
     @include m.flex(false, false, center, flex-start);
-    gap: 3rem;
+    gap: 2rem;
     width: 70%;
 }
 
 main {
     // text-align: center;
-    width: 30%;
+    width: 25%;
     min-height: 17rem;
     max-height: 17rem;
     text-align: right;
@@ -47,6 +47,7 @@ main {
     align-items: flex-end;
 
     .greeting {
+        width: 20rem;
         flex-direction: wrap;
         padding-bottom: 1rem;
         min-width: fit-content;
@@ -70,7 +71,7 @@ main {
 footer {
     min-height: 17rem;
     max-height: 17rem;
-    width: 31rem;
+    width: 27rem;
     border: 1px solid c.$logo;
     background: c.$select;
     gap: 0.4rem;
@@ -90,7 +91,7 @@ footer {
 
     header {
         padding-top: 3rem;
-        display: block !important;
+        // display: block !important;
     }
 
     .screen-container {

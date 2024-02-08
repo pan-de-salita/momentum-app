@@ -140,10 +140,10 @@ table {
 }
 
 .text-input {
-  width: 20rem;
+  width: 18rem;
   background: none;
   border: none;
-  border-bottom: 4px dotted #546A90;
+  border-bottom: 3px dotted #546A90;
   color: #ffd400;
 }
 
@@ -254,11 +254,25 @@ table {
 }
 
 .line {
+  width: 100%;
   gap: 0.5rem;
 }
 
 .terminal-text {
   font-size: 0.9rem;
+}
+
+.mode-idle {
+  cursor: pointer;
+}
+
+.mode-idle:hover {
+  border-color: #df85ff;
+  color: #df85ff;
+}
+
+.mode-focus {
+  cursor: default;
 }
 
 body {
@@ -291,12 +305,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 2rem;
   width: 70%;
 }
 
 main {
-  width: 30%;
+  width: 25%;
   min-height: 17rem;
   max-height: 17rem;
   text-align: right;
@@ -306,6 +320,7 @@ main {
   align-items: flex-end;
 }
 main .greeting {
+  width: 20rem;
   flex-direction: wrap;
   padding-bottom: 1rem;
   min-width: fit-content;
@@ -325,7 +340,7 @@ main .icon {
 footer {
   min-height: 17rem;
   max-height: 17rem;
-  width: 31rem;
+  width: 27rem;
   border: 1px solid #df85ff;
   background: #1F1147;
   gap: 0.4rem;
@@ -344,7 +359,6 @@ footer {
   }
   header {
     padding-top: 3rem;
-    display: block !important;
   }
   .screen-container {
     height: 100%;

@@ -78,10 +78,10 @@
 }
 
 .text-input {
-    width: 20rem;
+    width: 18rem;
     background: none;
     border: none;
-    border-bottom: 4px dotted c.$txt;
+    border-bottom: 3px dotted c.$txt;
     color: c.$input;
 }
 
@@ -193,9 +193,23 @@
 }
 
 .line {
+    width: 100%;
     gap: 0.5rem;
 }
 
 .terminal-text {
     font-size: 0.9rem;
+}
+
+.mode-idle {
+    cursor: pointer;
+}
+
+.mode-idle:hover {
+    border-color: c.$logo;
+    color: c.$logo;
+}
+
+.mode-focus {
+    cursor: default;
 }
