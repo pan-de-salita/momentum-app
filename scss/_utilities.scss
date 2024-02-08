@@ -187,7 +187,6 @@
     // gap: 0.5rem;
 }
 
-
 .todo-list {
     @include m.flex(column, false, center, flex-start);
 }
@@ -212,4 +211,9 @@
 
 .mode-focus {
     cursor: default;
+}
+
+.with-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: c.$logo c.$txt;
 }

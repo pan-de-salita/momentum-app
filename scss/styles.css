@@ -275,6 +275,11 @@ table {
   cursor: default;
 }
 
+.with-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #df85ff #546A90;
+}
+
 body {
   width: 100vw;
   height: 100vh;
