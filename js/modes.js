@@ -24,18 +24,15 @@ const getFromStorage = (key) => {
 //// invokes default mode (helpMode) when user first signs on
 ////////////////////////////////////////////////////////////
 
-const invokeDefaultMode = () => {
-  if (!currentMode) {
-    setInStorage('currentMode', helpMode) // helpMode as default mode
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    changeMode(currentMode);
-    changeModeText(currentMode);
-  });
+if (!currentMode) {
+  setInStorage('currentMode', helpMode) // helpMode as default mode
+  currentMode = getFromStorage('currentMode');
 }
 
-invokeDefaultMode();
+document.addEventListener('DOMContentLoaded', () => {
+  changeMode(currentMode);
+  changeModeText(currentMode);
+});
 
 ////////////////////////////////////////////////////////////
 //// change mode by key ////////////////////////////////////
