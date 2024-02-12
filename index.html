@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emumentum</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="./scss/styles.css" type="text/css" media="screen" />
     <link href="https://css.gg/css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,97 +17,64 @@
     <script src="./js/modes.js" defer></script>
   </head>
   <body>
-    <!-- User Story #1: As a user I want to put my name on the homepage -->
-    <!-- User Story #2: As a user I want to see the current time on the homepage -->
-    <!-- User Story #3: As a user I want to see a greeting with my inputted name on the homepage -->
-    <!-- User Story #4: As a user I want to add my main focus for today on the homepage and display it also on the same page -->
-    <!-- TODO User Story #5: As a user I want to see a random quote on the homepage -->
-    <!-- User y #6: As a user I want to add a todo list on the homepage and is able to see the list on the same page -->
-    <!-- TODO User Story #7: As a user I want to add a new quote for my momentum app -->
-    <!-- TODO make the bg image changing depende sa time of the day -->
-    <!-- make the name persist kahit nireload dapat the name/quotes/todos u added are still there -->
-    <!-- TODO quotes should be fetched from third party api -->
-    <!-- use multiple js files (there should be a proper way to do this :thinking: -->
-
     <div class="intro flex-column-center show">
       <h2 class="hello app-name">emumentum</h2>
       <h3 class="hello subheader name-prompt">your name:</h3>
       <input type="text" name="username" size="24" class="username text-input subheader" autocomplete="off">
     </div>
-
     <header class="app-interface flex-row-center hide">
       <span class="app-name-small top-bottom-section">emumentum</span>
     </header>
-
     <div class="screen-container app-interface hide">
-
       <main class="app-interface hide">
-        <!-- <i class="gg-bot icon"></i> -->
-        <!-- <i class="gg-eye icon"></i> -->
-        <!-- <i class="gg-border-style-solid icon main-padding-default"></i> -->
         <i class="gg-eye-alt icon main-padding-default"></i>
         <span class="time main-padding-default header"></span>
         <div class="greeting main-padding-default">
-          <span class="message subheader">hi,</span>
-          <span class="name subheader">name</span>
+          <span class="message subheader">哦,你原來還沒死呢,</span><span class="name subheader">name</span>
         </div>
         <div class="focus flex-column-center">
-          <h1 class="question body-text">your main focus today:</h1>
+          <h1 class="question body-text">今日焦點:</h1>
           <input type="text" name="main-focus-input" size="24" class="text-input body-text show" autocomplete="off">
           <div class="main-focus-container">
-
             <label class="todo-label main-focus-label hide body-text" name='main-focus'></label>
             <input type="checkbox" name="main-focus-checkbox" class="hide" value="main-focus">
             <i class="gg-pen edit hidden"></i>
           </div>
         </div>
       </main>
-
       <footer class="mode-container app-interface hide with-scrollbar">
         <div class="mode-select flex-row-start">
           <span class="help-clickable mode-focus">help</span>
           <span class="todo-clickable mode-idle">todo</span>
           <span class="shell-clickable mode-idle">shell</span>
         </div>
-
         <div class="mode-text">
-
           <p class="help">
             / ----------------- "MANUAL" ----------------- \ <br />
             | navigate between modes: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
-            | [ctrl -> x -> m] help | man page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
-            | [ctrl -> x -> ,] todo | read TODOs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
-            | [ctrl -> x -> .] shell | add TODOs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            | [ctrl - x - m] help | man page &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [ctrl - x - ,] todo | read TODOs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            | [ctrl - x - .] shell | the 'emu' part  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
             ------------------------------------------------ <br />
             | shell mode commands: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
-            | [todo [your task]] | adds a task &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
-            | [todos] | shows all tasks as array &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
-            | [rm -rf .] | DO NOT USE THIS COMMAND &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
-            ------------------------------------------------ <br />
-            \ _______________ 哦，我還沒死呢 _______________ /
-            <br />
+            | [add --todo [your task]] | adds a task &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [add --quote [your quote]] | adds a quote &nbsp;&nbsp; | <br />
+            | [rd --todo | shows all tasks as an array &nbsp;&nbsp;&nbsp;&nbsp;| <br />
+            | [rd --quote | shows a quote by Torvalds &nbsp;&nbsp;&nbsp;&nbsp; | <br />
+            | [rm -rf .] | destroys all my hard work &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<br />
+            \ -------------------------------------------- / <br />
           </p>
-
           <div class="todo hide"></div>
-
           <div class="todo-input-container flex-column-left shell hide">
             <div class="line flex-row-start">
               <span class="todo-prompt">
-                <span class="name">name</span>@emumentum:~$
+                <span class="name">name</span><span>@emumentum:~$</span>
               </span>
               <input type="text" name="todo-input" size="25" class="todo-input" autocomplete="off">
             </div>
-
-
           </div>
-
         </div>
-
       </footer>
-
-
     </div>
-    
-
   </body>
 </html>

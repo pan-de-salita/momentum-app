@@ -96,6 +96,7 @@
 }
 
 .todo-prompt {
+    white-space: nowrap;
     font-size: 0.8rem;
     line-height: 1.3;
     color: c.$logo;
@@ -176,9 +177,12 @@
 }
 
 .mode-text {
+    overflow-y: auto;
     margin: 0 0.5rem;
     line-height: 1.3;
     width: 96%;
+    scrollbar-width: thin;
+    scrollbar-color: c.$txt c.$select;
 }
 
 .todo-input-container {
@@ -213,7 +217,3 @@
     cursor: default;
 }
 
-.with-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: c.$logo c.$txt;
-}

@@ -12,99 +12,59 @@ const todoMode = 'todo';
 const shellMode = 'shell';
 let currentMode = sessionStorage.getItem('currentMode');
 
-const setInStorage = (key, value) => {
-  sessionStorage.setItem(key, value);
-}
-
-const getFromStorage = (key) => {
-  return sessionStorage.getItem(key);
-}
-
-////////////////////////////////////////////////////////////
-//// invokes default mode (helpMode) when user first signs on
-////////////////////////////////////////////////////////////
-
-const invokeDefaultMode = () => {
-  if (!currentMode) {
-    setInStorage('currentMode', helpMode) // helpMode as default mode
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    changeMode(currentMode);
-    changeModeText(currentMode);
-  });
-}
-
-invokeDefaultMode();
-
-////////////////////////////////////////////////////////////
-//// change mode by key ////////////////////////////////////
-////////////////////////////////////////////////////////////
-
-// collects keys pressed
 let keysPressed = {};
 
-// handles mode changes according to key presses
 document.addEventListener('keydown', (e) => {
-  e.stopPropagation();
   keysPressed[e.key] = true;
+  e.stopPropagation();
 
   if (keysPressed['Control']) {
-    currentMode = confirmModeByKey(e.key);
-    changeMode(currentMode);
-    changeModeText(currentMode);
+    keysPressed[e.key] = true;
+    if (keysPressed['x'] && e.key === 'm') {
+      sessionStorage.setItem('currentMode', helpMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    } else if (keysPressed['x'] && e.key === ',') {
+      sessionStorage.setItem('currentMode', todoMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    } else if (keysPressed['x'] && e.key === '.') {
+      sessionStorage.setItem('currentMode', shellMode);
+      currentMode = sessionStorage.getItem('currentMode');
+      changeMode(currentMode);
+      changeModeText(currentMode);
+    }
   }
 });
 
-// determines appropriate mode according to key presses
-const confirmModeByKey = (key) => {
-  keysPressed[key] = true;
 
-  if (keysPressed['x'] && key === 'm') {
-    setInStorage('currentMode', helpMode);
-  } else if (keysPressed['x'] && key === ',') {
-    setInStorage('currentMode', todoMode);
-  } else if (keysPressed['x'] && key === '.') {
-    setInStorage('currentMode', shellMode);
-  }
-
-  return getFromStorage('currentMode');
-}
-
-// refreshes keys pressed
 document.addEventListener('keyup', (e) => {
   delete keysPressed[e.key];
 });
 
-////////////////////////////////////////////////////////////
-//// change mode by button click ///////////////////////////
-////////////////////////////////////////////////////////////
-
-// handles mode changes according to button clicked
-document.addEventListener('click', (e) => {
-  confirmModeByClick(e.target);
-
-  currentMode = getFromStorage('currentMode');
+helpButton.addEventListener('click', () => {
+  sessionStorage.setItem('currentMode', helpMode);
+  currentMode = sessionStorage.getItem('currentMode');
   changeMode(currentMode);
   changeModeText(currentMode);
-})
+});
 
-// determines appropriate mode according to button clicked
-const confirmModeByClick = (button) => {
-  if (button === helpButton) {
-    setInStorage('currentMode', helpMode);
-  } else if (button === todoButton) {
-    setInStorage('currentMode', todoMode);
-  } else if (button === shellButton) {
-    setInStorage('currentMode', shellMode);
-  }
-}
+todoButton.addEventListener('click', () => {
+  sessionStorage.setItem('currentMode', todoMode);
+  currentMode = sessionStorage.getItem('currentMode');
+  changeMode(currentMode);
+  changeModeText(currentMode);
+});
 
-////////////////////////////////////////////////////////////
-//// change mode display ///////////////////////////////////
-////////////////////////////////////////////////////////////
+shellButton.addEventListener('click', () => {
+  sessionStorage.setItem('currentMode', shellMode);
+  currentMode = sessionStorage.getItem('currentMode');
+  changeMode(currentMode);
+  changeModeText(currentMode);
+});
 
-// changes mode
 const changeMode = (newMode) => {
   [...modes].forEach(mode => {
     if (mode.textContent === newMode) {
@@ -117,15 +77,15 @@ const changeMode = (newMode) => {
   });
 };
 
-// changes mode text
 const changeModeText = (newMode) => {
   [...modeContent].forEach(modeContent => {
     if (modeContent.classList.contains(newMode)) {
       modeContent.classList.remove('hide');
       modeContent.classList.add('show');
-      // autofocus on input when in shellMode
-      if (modeContent.classList.contains(shellMode)) {
-        document.querySelector('.todo-input').focus();
+      if (modeContent.classList.contains(shellMode)) { // pretty hacky
+        document.querySelectorAll('.todo-input').forEach(function(node) {
+          node.focus();
+        });
       }
     } else {
       modeContent.classList.remove('show');
@@ -133,6 +93,16 @@ const changeModeText = (newMode) => {
     }
   });
 };
+
+if (!currentMode) {
+  currentMode = helpMode;
+  sessionStorage.setItem('currentMode', currentMode);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  changeMode(currentMode);
+  changeModeText(currentMode);
+});
 
 ////////////////////////////////////////////////////////////
 // shell ///////////////////////////////////////////////////
