@@ -120,9 +120,10 @@ const changeModeText = (newMode) => {
     if (modeContent.classList.contains(newMode)) {
       modeContent.classList.remove('hide');
       modeContent.classList.add('show');
-      // autofocus on input when in shellMode
-      if (modeContent.classList.contains(shellMode)) {
-        document.querySelectorAll('.todo-input').focus();
+      if (modeContent.classList.contains(shellMode)) { // pretty hacky
+        document.querySelectorAll('.todo-input').forEach(function(node) {
+          node.focus();
+        });
       }
     } else {
       modeContent.classList.remove('show');
