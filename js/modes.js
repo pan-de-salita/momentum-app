@@ -122,7 +122,7 @@ const changeModeText = (newMode) => {
       modeContent.classList.add('show');
       // autofocus on input when in shellMode
       if (modeContent.classList.contains(shellMode)) {
-        document.querySelector('.todo-input').focus();
+        document.querySelectorAll('.todo-input').focus();
       }
     } else {
       modeContent.classList.remove('show');
