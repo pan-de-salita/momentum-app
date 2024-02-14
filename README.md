@@ -1,2 +1,2 @@
 # momentum-app
-a momentum app clone
+part minimal momentum app clone, part even more minimal shell emulator
